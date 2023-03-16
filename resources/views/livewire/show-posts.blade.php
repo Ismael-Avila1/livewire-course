@@ -22,16 +22,49 @@
                                 class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 wire:click="order('id')">
                                 ID
+
+                                {{-- Sort Icon --}}
+                                @if ($sort == 'id')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort float-right mt-1"></i>
+                                @endif
                             </th>
                             <th scope="col"
                                 class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 wire:click="order('title')">
                                 Title
+
+                                {{-- Sort Icon --}}
+                                @if ($sort == 'title')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort float-right mt-1"></i>
+                                @endif
                             </th>
                             <th scope="col"
                                 class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
                                 wire:click="order('content')">
                                 Content
+
+                                {{-- Sort Icon --}}
+                                @if ($sort == 'content')
+                                    @if ($direction == 'asc')
+                                        <i class="fas fa-sort-alpha-up-alt float-right mt-1"></i>
+                                    @else
+                                        <i class="fas fa-sort-alpha-down-alt float-right mt-1"></i>
+                                    @endif
+                                @else
+                                    <i class="fas fa-sort float-right mt-1"></i>
+                                @endif
                             </th>
                             <th scope="col" class="relative px-6 py-3">
                                 <span class="sr-only">Edit</span>

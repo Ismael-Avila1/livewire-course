@@ -30,25 +30,28 @@
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y divide-gray-200">
+                    @foreach ($posts as $post)
                     <tr>
-
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <div class="text-sm text-gray-900">Regional</div>
-                            <div class="text-sm text-gray-500">Provincial</div>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-900">
+                                {{ $post->id }}
+                            </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                            <span
-                                class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100">
-                                Active
-                            </span>
+                        <td class="px-6 py-4">
+                            <div class="text-sm text-gray-900">
+                                {{ $post->title }}
+                            </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            Admin
+                        <td class="px-6 py-4 text-sm text-gray-500">
+                            <div class="text-sm text-gray-900">
+                                {{ $post->content }}
+                            </div>
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <td class="px-6 py-4 text-right text-sm font-medium">
                             <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
 

@@ -10,7 +10,7 @@
         <x-table>
 
             <div class="px-6 py-4">
-                <input type="text" wire:model="search">
+                <x-input type="text" wire:model="search" class="w-full" placeholder="Escribe para buscar"/>
             </div>
 
             <table class="min-w-full divide-y divide-gray-200">

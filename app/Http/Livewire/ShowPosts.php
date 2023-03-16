@@ -21,4 +21,17 @@ class ShowPosts extends Component
 
         return view('livewire.show-posts', compact('posts'));
     }
+
+
+    public function order($sort) {
+        if($this->sort == $sort) {
+            $this->direction = (($this->direction == 'desc') ? 'asc' : 'desc');
+        }
+        else {
+            $this->sort = $sort;
+            $this->direction = 'asc';
+        }
+
+
+    }
 }

@@ -9,8 +9,10 @@
 
         <x-table>
 
-            <div class="px-6 py-4">
-                <x-input type="text" wire:model="search" class="w-full" placeholder="Escribe para buscar"/>
+            <div class="px-6 py-4 flex items-center">
+                <x-input type="text" wire:model="search" class="flex-1 mr-4" placeholder="Escribe para buscar"/>
+
+                @livewire('create-post')
             </div>
 
             @if ($posts->count() )

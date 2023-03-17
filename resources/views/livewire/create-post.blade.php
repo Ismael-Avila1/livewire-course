@@ -1,3 +1,5 @@
 <div>
-    {{-- Knowing others is intelligence; knowing yourself is true wisdom. --}}
+    <x-danger-button>
+        Crear nuevo Post
+    </x-danger-button>
 </div>

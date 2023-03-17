@@ -13,12 +13,19 @@ class CreatePost extends Component
 
     public $title, $content;
 
+    protected $rules = [
+        'title' => 'required|max:100',
+        'content' => 'required|min:100'
+    ];
+
     public function render()
     {
         return view('livewire.create-post');
     }
 
     public function save() {
+        $this->validate();
+
         Post::create([
             'title' => $this->title,
             'content' => $this->content

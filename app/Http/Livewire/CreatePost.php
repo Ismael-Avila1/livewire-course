@@ -14,13 +14,17 @@ class CreatePost extends Component
     public $title, $content;
 
     protected $rules = [
-        'title' => 'required|max:100',
+        'title' => 'required|max:30',
         'content' => 'required|min:100'
     ];
 
     public function render()
     {
         return view('livewire.create-post');
+    }
+
+    public function updated($porpertyName) {
+        $this->validateOnly($porpertyName);
     }
 
     public function save() {

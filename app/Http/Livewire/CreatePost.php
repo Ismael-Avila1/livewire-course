@@ -22,5 +22,7 @@ class CreatePost extends Component
             'title' => $this->title,
             'content' => $this->content
         ]);
+
+        $this->emit('render');
     }
 }

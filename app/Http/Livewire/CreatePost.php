@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 
+use function GuzzleHttp\Promise\all;
 
 class CreatePost extends Component
 {
@@ -25,6 +26,7 @@ class CreatePost extends Component
 
         $this->reset(['open', 'title', 'content']);
 
-        $this->emit('render');
+        $this->emitTo('show-post', 'render');
+        $this->emit('alert', 'El Post se creó satisfactoriamente!');
     }
 }

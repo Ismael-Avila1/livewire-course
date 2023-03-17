@@ -13,13 +13,13 @@
         <x-slot name="content">
             <div class="mb-4">
                 <x-label value="Título del post" />
-                <x-input type="text" class="w-full" />
+                <x-input type="text" class="w-full" wire:model.defer="title" />
             </div>
 
             <div class="mb-4">
                 <x-label value="Contenido del post" />
                 
-                <textarea class="form-control w-full" rows="6"></textarea>
+                <textarea class="form-control w-full" rows="6" wire:model.defer="content"></textarea>
             </div>
         </x-slot>
 
@@ -28,7 +28,7 @@
                 Cancelar
             </x-secondary-button>
 
-        <x-danger-button>
+        <x-danger-button wire:click="save">
             Crear Post
         </x-danger-button>
         </x-slot>

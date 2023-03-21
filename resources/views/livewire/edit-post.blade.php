@@ -1,3 +1,3 @@
 <div>
-    {{-- A good traveler has no fixed plans and is not intent upon arriving. --}}
+    <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
 </div>

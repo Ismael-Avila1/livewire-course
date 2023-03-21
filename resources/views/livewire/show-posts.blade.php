@@ -92,7 +92,7 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 text-right text-sm font-medium">
-                                <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                @livewire('edit-post', ['post' => $post], key($post->id))
                             </td>
                         </tr>
                         @endforeach

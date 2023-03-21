@@ -4,18 +4,22 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Livewire\WithFileUploads;
 
 use function GuzzleHttp\Promise\all;
 
 class CreatePost extends Component
 {
+    use WithFileUploads;
+
     public $open = false;
 
-    public $title, $content;
+    public $title, $content, $image;
 
     protected $rules = [
         'title' => 'required|max:30',
-        'content' => 'required|min:100'
+        'content' => 'required|min:100',
+        'image' => 'required|image|max:2048'
     ];
 
     public function render()

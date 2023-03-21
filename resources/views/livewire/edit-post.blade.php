@@ -1,9 +1,9 @@
 <div>
-    <a class="btn-green">
+    <a class="btn-green" wire:click="$set('open', true)">
         <i class="fas fa-edit"></i>
     </a>
 
-    <x-dialog-modal>
+    <x-dialog-modal wire:model="open">
         <x-slot name="title">
         </x-slot>
 

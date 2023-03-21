@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class EditPost extends Component
 {
+    public $open = false;
     public $post;
 
     public function mount(Post $post)

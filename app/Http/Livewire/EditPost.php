@@ -10,9 +10,19 @@ class EditPost extends Component
     public $open = false;
     public $post;
 
+    public $rules = [
+        'post.title' => 'required',
+        'post.content' => 'required'
+    ];
+
     public function mount(Post $post)
     {
         $this->post = $post;
+    }
+
+    public function save()
+    {
+        $this->post->save();
     }
 
 

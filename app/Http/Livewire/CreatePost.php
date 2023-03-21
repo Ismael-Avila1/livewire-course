@@ -14,7 +14,7 @@ class CreatePost extends Component
 
     public $open = false;
 
-    public $title, $content, $image;
+    public $title, $content, $image, $identifier;
 
     protected $rules = [
         'title' => 'required|max:30',
@@ -43,8 +43,13 @@ class CreatePost extends Component
         ]);
 
         $this->reset(['open', 'title', 'content', 'image']);
+        $this->identifier = rand();
 
         $this->emit('render');
         $this->emit('alert', 'El Post se creó satisfactoriamente!');
+    }
+
+    public function mount() {
+        $this->identifier = rand();
     }
 }

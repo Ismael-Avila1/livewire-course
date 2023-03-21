@@ -37,7 +37,7 @@
             </div>
 
             <div>
-                <input type="file" wire:model="image">
+                <input type="file" wire:model="image" id="{{ $identifier }}">
                 <x-input-error for="image"/>
             </div>
         </x-slot>

@@ -6,6 +6,7 @@ use App\Models\Post;
 use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 
 class EditPost extends Component
@@ -30,9 +31,16 @@ class EditPost extends Component
     {
         $this->validate();
 
+        if($this->image) {
+            Storage::delete([$this->post->image]);
+            $this->post->image = $this->image->store('posts');
+        }
+
         $this->post->save();
 
-        $this->reset(['open']);
+        $this->reset(['open', 'image']);
+        $this->identifier = rand();
+
         $this->emit('render');
         $this->emit('alert', 'El Post se actualizó satisfactoriamente!');
     }

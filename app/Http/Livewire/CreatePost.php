@@ -34,12 +34,15 @@ class CreatePost extends Component
     public function save() {
         $this->validate();
 
+        $image = $this->image->store('posts');
+
         Post::create([
             'title' => $this->title,
-            'content' => $this->content
+            'content' => $this->content,
+            'image' => $image
         ]);
 
-        $this->reset(['open', 'title', 'content']);
+        $this->reset(['open', 'title', 'content', 'image']);
 
         $this->emit('render');
         $this->emit('alert', 'El Post se creó satisfactoriamente!');

@@ -3,12 +3,17 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use Illuminate\Foundation\Testing\WithFaker;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+
 
 class EditPost extends Component
 {
+    use WithFileUploads;
+
     public $open = false;
-    public $post;
+    public $post, $image, $identifier;
 
     public $rules = [
         'post.title' => 'required',
@@ -18,6 +23,7 @@ class EditPost extends Component
     public function mount(Post $post)
     {
         $this->post = $post;
+        $this->identifier = rand();
     }
 
     public function save()

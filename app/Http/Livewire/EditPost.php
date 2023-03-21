@@ -22,7 +22,13 @@ class EditPost extends Component
 
     public function save()
     {
+        $this->validate();
+
         $this->post->save();
+
+        $this->reset(['open']);
+        $this->emit('render');
+        $this->emit('alert', 'El Post se actualizó satisfactoriamente!');
     }
 
 

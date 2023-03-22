@@ -35,6 +35,11 @@ class ShowPosts extends Component
         $this->post = new Post();
     }
 
+    public function updatingSearch()
+    {
+        $this->resetPage();
+    }
+
     public function render()
     {
         $posts = Post::where('title', 'like', '%' . $this->search . '%')

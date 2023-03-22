@@ -12,7 +12,22 @@ class ShowPosts extends Component
     public $sort = 'id';
     public $direction = 'desc';
 
+    public $post;
+    public $open_edit = false;
+    public $image;
+    public $identifier;
+
+    public $rules = [
+        'post.tilte' => 'requiered',
+        'post.content' => 'requiered'
+    ];
+
     protected $listeners = ['render' => 'render']; // al escuhcar el método 'render', se va a ejecutar el método 'render' ($this->render)
+
+    public function mount()
+    {
+        $this->identifier = rand();
+    }
 
     public function render()
     {
@@ -33,7 +48,13 @@ class ShowPosts extends Component
             $this->sort = $sort;
             $this->direction = 'asc';
         }
-
-
     }
+
+    public function edit(Post $post)
+    {
+        $this->post = $post;
+
+        $this->open_edit = true;
+    }
+
 }

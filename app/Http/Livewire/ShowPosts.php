@@ -27,6 +27,7 @@ class ShowPosts extends Component
     public function mount()
     {
         $this->identifier = rand();
+        $this->post = new Post();
     }
 
     public function render()

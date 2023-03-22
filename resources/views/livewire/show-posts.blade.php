@@ -148,7 +148,7 @@
         </x-slot>
 
         <x-slot name="footer">
-            <x-secondary-button wire:click="$set('open', false)">
+            <x-secondary-button wire:click="$set('open_edit', false)">
                 Cancelar
             </x-secondary-button>
 

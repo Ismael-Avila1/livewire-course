@@ -152,7 +152,7 @@
                 Cancelar
             </x-secondary-button>
 
-        <x-danger-button wire:click="save" wire:loading.attr="disabled" class="disabled:opacity-25">
+        <x-danger-button wire:click="update" wire:loading.attr="disabled" class="disabled:opacity-25">
             Actualizar Post
         </x-danger-button>
         </x-slot>

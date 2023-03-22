@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 
 class ShowPosts extends Component
 {
@@ -18,8 +19,8 @@ class ShowPosts extends Component
     public $identifier;
 
     public $rules = [
-        'post.tilte' => 'requiered',
-        'post.content' => 'requiered'
+        'post.title' => 'required',
+        'post.content' => 'required'
     ];
 
     protected $listeners = ['render' => 'render']; // al escuhcar el método 'render', se va a ejecutar el método 'render' ($this->render)
@@ -56,6 +57,22 @@ class ShowPosts extends Component
         $this->post = $post;
 
         $this->open_edit = true;
+    }
+
+    public function update()
+    {
+        $this->validate();
+
+        if($this->image) {
+            Storage::delete($this->post->image);
+            $this->post->image = $this->image->store('posts');
+        }
+
+        $this->post->save();
+
+        $this->reset(['open_edit', 'image']);
+        $this->identifier = rand();
+        $this->emit('alert', 'El Post se actualizó satisfactoriamente!');
     }
 
 }

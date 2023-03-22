@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use GuzzleHttp\Psr7\Query;
 use Illuminate\Support\Facades\Storage;
 use Livewire\WithFileUploads;
 use Livewire\WithPagination;
@@ -13,7 +14,7 @@ class ShowPosts extends Component
     use WithFileUploads;
     use WithPagination;
 
-    public $search;
+    public $search = '';
     public $sort = 'id';
     public $direction = 'desc';
 
@@ -21,7 +22,14 @@ class ShowPosts extends Component
     public $open_edit = false;
     public $image;
     public $identifier;
-    public $recordsNumber = 10;
+    public $recordsNumber = '10';
+
+    protected $queryString = [
+        'recordsNumber' => ['except' => '10'],
+        'sort' => ['except' => 'id'],
+        'direction' => ['except' => 'desc'],
+        'search' => ['except' => '']
+    ];
 
     public $rules = [
         'post.title' => 'required',

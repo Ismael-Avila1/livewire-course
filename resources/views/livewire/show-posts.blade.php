@@ -10,7 +10,20 @@
         <x-table>
 
             <div class="px-6 py-4 flex items-center">
-                <x-input type="text" wire:model="search" class="flex-1 mr-4" placeholder="Escribe para buscar"/>
+
+                <div class="flex items-center" wire:model="recordsNumber">
+                    <span>Mostrar</span>
+                    <select class="mx-2 form-control">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+
+                    <span>entradas</span>
+                </div>
+
+                <x-input type="text" wire:model="search" class="flex-1 mx-4" placeholder="Escribe para buscar"/>
 
                 @livewire('create-post')
             </div>

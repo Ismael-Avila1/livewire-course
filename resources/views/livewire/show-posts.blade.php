@@ -108,6 +108,9 @@
                 </div>
             @endif
 
+            <div class="px-6 py-3">
+                {{ $posts->links() }}
+            </div>
 
         </x-table>
 

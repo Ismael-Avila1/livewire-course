@@ -108,9 +108,11 @@
                 </div>
             @endif
 
-            <div class="px-6 py-3">
-                {{ $posts->links() }}
-            </div>
+            @if ($posts->hasPages())
+                <div class="px-6 py-3">
+                    {{ $posts->links() }}
+                </div>
+            @endif
 
         </x-table>
 

@@ -64,6 +64,11 @@
         <script>
             ClassicEditor
                 .create( document.querySelector( '#editor' ) )
+                .then(function(editor) {
+                    editor.model.document.on('change:data', () => {
+                        @this.set('content', editor.getData())
+                    })
+                })
                 .catch( error => {
                     console.error( error );
                 } );

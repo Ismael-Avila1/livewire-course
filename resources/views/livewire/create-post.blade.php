@@ -66,8 +66,12 @@
                 .create( document.querySelector( '#editor' ) )
                 .then(function(editor) {
                     editor.model.document.on('change:data', () => {
-                        @this.set('content', editor.getData())
-                    })
+                        @this.set('content', editor.getData());
+                    });
+
+                    Livewire.on('resetCKEditor', () => {
+                        editor.setData('');
+                    });
                 })
                 .catch( error => {
                     console.error( error );

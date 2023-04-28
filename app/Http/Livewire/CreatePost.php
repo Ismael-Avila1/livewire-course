@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Post;
 use Livewire\WithFileUploads;
+use PhpParser\Node\Expr\FuncCall;
 
 use function GuzzleHttp\Promise\all;
 
@@ -51,5 +52,14 @@ class CreatePost extends Component
 
     public function mount() {
         $this->identifier = rand();
+    }
+
+    public function updatingOpen()
+    {
+        if($this->open === false) {
+            $this->reset(['title', 'content', 'image']);
+            $this->identifier = rand();
+            $this->emit('resetCKEditor');
+        }
     }
 }

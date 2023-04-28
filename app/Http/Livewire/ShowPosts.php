@@ -107,6 +107,7 @@ class ShowPosts extends Component
     public function delete(Post $post)
     {
         $post->delete();
+        Storage::delete($post->image);
     }
 
 }

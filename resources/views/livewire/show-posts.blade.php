@@ -149,7 +149,7 @@
 
             @if ($image)
                 <img class="mb-4" src="{{ $image->temporaryUrl() }}">
-            @else
+            @elseif($post->image)
                 <img src="{{ Storage::url($post->image) }}" alt="">
             @endif
 

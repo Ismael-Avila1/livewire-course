@@ -18,6 +18,8 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
         @livewireStyles
+
+        @stack('css')
     </head>
     <body class="font-sans antialiased">
         <x-banner />
@@ -43,6 +45,8 @@
         @stack('modals')
 
         @livewireScripts
+
+        @stack('js')
 
         <script>
             Livewire.on('alert', function(message){

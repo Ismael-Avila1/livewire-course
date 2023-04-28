@@ -28,10 +28,14 @@
                 <x-input-error for="title" />
             </div>
 
-            <div class="mb-4">
+            <div class="mb-4" wire:ignore>
                 <x-label value="Contenido del post" />
 
-                <textarea class="form-control w-full" rows="6" wire:model="content"></textarea>
+                <textarea id="editor"
+                        class="form-control w-full" 
+                        rows="6" 
+                        wire:model="content">
+                </textarea>
 
                 <x-input-error for="content" />
             </div>
@@ -53,4 +57,17 @@
         </x-slot>
 
     </x-dialog-modal>
+
+    @push('js')
+        <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
+
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
+    @endpush
+
 </div>

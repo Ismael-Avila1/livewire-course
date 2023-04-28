@@ -23,6 +23,7 @@ class ShowPosts extends Component
     public $image;
     public $identifier;
     public $recordsNumber = '10';
+    public $readyToLoad = false;
 
     protected $queryString = [
         'recordsNumber' => ['except' => '10'],
@@ -51,10 +52,15 @@ class ShowPosts extends Component
 
     public function render()
     {
-        $posts = Post::where('title', 'like', '%' . $this->search . '%')
+        if($this->readyToLoad) {
+            $posts = Post::where('title', 'like', '%' . $this->search . '%')
                         ->orwhere('content', 'like', '%' . $this->search . '%')
                         ->orderBy($this->sort, $this->direction)
                         ->paginate($this->recordsNumber);
+        }
+        else {
+            $posts = [];
+        }
 
         return view('livewire.show-posts', compact('posts'));
     }
@@ -91,6 +97,11 @@ class ShowPosts extends Component
         $this->reset(['open_edit', 'image']);
         $this->identifier = rand();
         $this->emit('alert', 'El Post se actualizó satisfactoriamente!');
+    }
+
+    public function loadPosts()
+    {
+        $this->readyToLoad = true;
     }
 
 }

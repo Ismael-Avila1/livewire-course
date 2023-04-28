@@ -101,7 +101,7 @@
                             </td>
                             <td class="px-6 py-4 text-sm text-gray-500">
                                 <div class="text-sm text-gray-900">
-                                    {{ $item->content }}
+                                    {!! $item->content  !!}
                                 </div>
                             </td>
                             <td class="px-6 py-4 text-sm font-medium flex">

@@ -28,14 +28,16 @@
                 <x-input-error for="title" />
             </div>
 
-            <div class="mb-4" wire:ignore>
+            <div class="mb-4">
                 <x-label value="Contenido del post" />
 
-                <textarea id="editor"
-                        class="form-control w-full" 
-                        rows="6" 
-                        wire:model="content">
-                </textarea>
+                <div wire:ignore>
+                    <textarea id="editor"
+                            class="form-control w-full" 
+                            rows="6" 
+                            wire:model="content">
+                    </textarea>
+                </div>
 
                 <x-input-error for="content" />
             </div>

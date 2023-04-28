@@ -37,7 +37,7 @@ class ShowPosts extends Component
         'post.content' => 'required'
     ];
 
-    protected $listeners = ['render' => 'render']; // al escuhcar el método 'render', se va a ejecutar el método 'render' ($this->render)
+    protected $listeners = ['render' => 'render', 'delete']; // al escuhcar el método 'render', se va a ejecutar el método 'render' ($this->render)
 
     public function mount()
     {
@@ -102,6 +102,11 @@ class ShowPosts extends Component
     public function loadPosts()
     {
         $this->readyToLoad = true;
+    }
+
+    public function delete(Post $post)
+    {
+        $post->delete();
     }
 
 }

@@ -109,7 +109,8 @@
                                     <i class=" fas fa-edit"></i>
                                 </a>
 
-                                <a class="btn btn-red ml-2">
+                                <a class="btn btn-red ml-2"
+                                    wire:click="$emit('deletePost', {{ $item->id }})">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
@@ -183,19 +184,24 @@
         <script src="sweetalert2.all.min.js"></script>
 
         <script>
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+            Livewire.on('deletePost', postId => {
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
+                        Livewire.emitTo('show-posts', 'delete', postId);
+
                         Swal.fire('Deleted!', 'Your file has been deleted.', 'success')
                     }
                 })
+            });
+
         </script>
     @endpush
 

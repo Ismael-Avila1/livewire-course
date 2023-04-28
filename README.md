@@ -1,4 +1,4 @@
-#Gestor de Posts
+# Gestor de Posts
 
 (Pendiente hacer documentación de las funcionalidades...)
 
